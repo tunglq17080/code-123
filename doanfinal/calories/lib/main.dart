@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:calories/components/donut_chart.dart';
+import 'package:calories/components/small_donut_chart.dart';
 
 void main() => runApp(MyApp());
+GlobalKey<SmallDonutChartState> globalKey = GlobalKey();
 
 class MyApp extends StatelessWidget {
   @override
@@ -32,10 +34,10 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
+class MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   int _counter = 0;
   SystemUiOverlayStyle systemUiOverlayStyle = new SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -83,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      globalKey.currentState.playAnimation();
     });
   }
 
@@ -129,6 +131,14 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
                 height: 300,
                 padding: EdgeInsets.all(20),
                 child: DonutChart(),
+              ),
+              Container(
+                height: 300,
+                width: 300,
+                padding: EdgeInsets.all(80),
+                child: SmallDonutChart(
+                  key: globalKey,
+                ),
               ),
               Card(
                 elevation: 0,
