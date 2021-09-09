@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:calories/components/donut_chart.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontFamily: "OpenSans",
           ))),
-      home: MyHomePage(title: 'Thanh menu duoi'),
+      home: MyHomePage(title: 'noi dung'),
     );
   }
 }
@@ -127,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               Container(
                 height: 300,
                 padding: EdgeInsets.all(20),
+                child: DonutChart(),
               ),
               Card(
                 elevation: 0,
