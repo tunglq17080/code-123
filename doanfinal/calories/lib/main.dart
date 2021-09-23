@@ -4,7 +4,7 @@ import 'package:calories/components/donut_chart.dart';
 import 'package:calories/components/small_donut_chart.dart';
 
 void main() => runApp(MyApp());
-GlobalKey<SmallDonutChartState> globalKey = GlobalKey();
+GlobalKey<DonutChartState> globalKey = GlobalKey();
 
 class MyApp extends StatelessWidget {
   @override
@@ -130,15 +130,144 @@ class MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               Container(
                 height: 300,
                 padding: EdgeInsets.all(20),
-                child: DonutChart(),
-              ),
-              Container(
-                height: 300,
-                width: 300,
-                padding: EdgeInsets.all(80),
-                child: SmallDonutChart(
+                child: DonutChart(
                   key: globalKey,
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  FlatButton(
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "2630",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: "OpenSans",
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "Calo đã nạp",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: "OpenSans",
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => _incrementCounter(),
+                  ),
+                  FlatButton(
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "2.5L",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: "OpenSans",
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "Nước đã uống",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: "OpenSans",
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => _incrementCounter(),
+                  ),
+                ],
+              ),
+              Divider(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "CHẤT BÉO",
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                        Text(
+                          "60g",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => _incrementCounter(),
+                  ),
+                  FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "TINH BỘT",
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                        Text(
+                          "210g",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => _incrementCounter(),
+                  ),
+                  FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "CHẤT ĐẠM",
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                        Text(
+                          "60g",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => _incrementCounter(),
+                  ),
+                ],
               ),
               Card(
                 elevation: 0,
@@ -154,9 +283,14 @@ class MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
                     ListTile(
                       contentPadding:
                           EdgeInsets.only(left: 20, top: 20, right: 20),
-                      title: Text('A calorie is a unit of energy'),
-                      subtitle: Text(
-                          '\ntext................................................................................'),
+                      title: Text('Mục tiêu mỗi ngày'),
+                      subtitle: Text("""
+                          \nThu được 2500 lượng calo cần thiết.
+                          \nUống 2.0 lít nước.
+                          \nĂn 300g tinh bột.
+                          \nĂn 60g chất béo.
+                          \nĂn 250 chất đạm.
+                          """),
                     ),
                     ButtonTheme.bar(
                       // make buttons use the appropriate styles for cards
